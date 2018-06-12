@@ -1,0 +1,320 @@
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+\usepackage{framed}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+\usepackage{framed}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+\begin{document}
+	\section{Week 2}
+	You'd like to use polynomial regression to predict a student's final exam score
+	from their midterm exam score. Concretely, suppose you want to fit a model
+	of the form , where is the midterm score and
+	is (midterm score) . Further, you plan to use both feature scaling (dividing
+	by the "max-min", or range, of a feature) and mean normalization.
+	What is the normalized feature ? (Hint: midterm = 72, fial = 74 is training
+	example 2.) 
+	
+	
+	Please round your answer to two decimal places and enter in
+	the text box below.
+	
+	%----------------------------------------%
+	
+	Suppose you have training examples with features (excluding
+	the additional all-ones feature for the intercept term, which you should add).
+	The normal equation is . For the given values of and
+	, what are the dimensions of , , and in this equation?
+	
+	%---------------------------------------%
+	\subsection{Question 4}
+	Suppose you have a dataset with m = 1000000 examples and n=200000
+	features for each example. You want to use multivariate linear regression to
+	fit the parameters $\theta$ to our data. Should you prefer gradient descent or the
+	normal equation?
+	
+	
+	
+	\subsection{Question 1.} 
+	Suppose m=4 students have taken some class, and the class had a midterm exam and a final exam. You have collected a dataset of their scores on the two exams, which is as follows:
+	\begin{center}
+	\begin{tabular}{|c|c|c|}\hline 
+		midterm exam &	(midterm exam$)^2$ &	final exam \\ \hline
+		89 &	7921 &	96 \\
+		72 &	5184 &	74 \\
+		94 &	8836 &	87 \\
+		69 &	4761 &	78 \\ \hline
+	\end{tabular} 
+	\end{center}
+	You'd like to use polynomial regression to predict a student's final exam score from their midterm exam score. Concretely, suppose you want to fit a model of the form h$\theta$(x)=$\theta$0+$\theta$1x1+$\theta$2x2, where x1 is the midterm score and x2 is (midterm score)2. Further, you plan to use both feature scaling (dividing by the "max-min", or range, of a feature) and mean normalization.
+	
+	What is the normalized feature x(1)1? (Hint: midterm = 89, final = 96 is training example 1.) Please round off your answer to two decimal places and enter in the text box below.
+	%-------------------------------------------------------------------------%	
+
+	\subsection{Question 1. Variant} 	
+	What is the normalized feature $x^{(4)}_2$? (Hint: midterm = 69, final = 78 is training example 4.) Please round off your answer to two decimal places and enter in the text box below.
+	
+	
+The mean of x2 is 6675.5 and the range is 8836-4761=4075 So x(1)1 is 4761-6675.54075=-0.47.
+	
+	%-------------------------------------------------------------------------%
+	\subsection{Question 2.} 
+	You run gradient descent for 15 iterations 	with $\alpha$=0.3 and compute
+	
+	J($\theta$) after each iteration. You find that the
+	
+	value of J($\theta$) \textbf{decreases} quickly then levels
+	
+	off. Based on this, which of the following conclusions seems most plausible?
+	
+	
+\begin{itemize}
+	\item (CORRECT)	$\alpha$=0.3 is an effective choice of learning rate.  [YES]
+	
+	\item Rather than use the current value of $\alpha$, it'd be more promising to try a smaller value of $\alpha$ (say $\alpha$=0.1).
+	
+	\item Rather than use the current value of $\alpha$, it'd be more promising to try a larger value of $\alpha$ (say $\alpha$=1.0).
+\end{itemize}	
+
+	
+	
+	%-------------------------------------------------------------------------%
+	\subsection{Question 2.} 
+		
+	You run gradient descent for 15 iterations
+	
+	with $\alpha$=0.3 and compute
+	
+	J($\theta$) after each iteration. You find that the
+	
+	value of J($\theta$) \textbf{decreases slowly}  then levels
+	
+	off. Based on this, which of the following conclusions seems most plausible?
+	
+	
+	
+\begin{itemize}
+	\item 	$\alpha$=0.3 is an effective choice of learning rate.  [YES]
+	
+	\item Rather than use the current value of $\alpha$, it'd be more promising to try a smaller value of $\alpha$ (say $\alpha$=0.1).
+	
+	\item (CORRECT) Rather than use the current value of $\alpha$, it'd be more promising to try a larger value of $\alpha$ (say $\alpha$=1.0).
+\end{itemize}	
+
+%---------------------------------------------------------------------------%
+\subsection*{Question 2}
+You run gradient descent for 15 iterations with $\alpha$=0.3 and compute J($\theta$) after each iteration. 
+You find that the value of J($\theta$) decreases quickly then levels off. Based on this, which of the following conclusions seems most plausible?
+
+\begin{itemize}
+	\item Rather than use the current value of $\alpha$, it'd be more promising to try a larger value of $\alpha$ (say $\alpha$=1.0).
+	\\ Incorrect	0.00	 A larger value for $\alpha$ will make it more likely that J($\theta$) diverges.
+	\item Rather than use the current value of $\alpha$, it'd be more promising to try a smaller value of $\alpha$ (say $\alpha$=0.1).			
+	\item $\alpha$=0.3 is an effective choice of learning rate.			
+\end{itemize}
+Total		0.00 / 1.00	
+
+Rather than use the current value of a, it'd be more promising to try a smaller value of $\alpha$ (say $\alpha$=0.1).	Correct	1.00	 
+Since the cost function is increasing, we know that gradient descent is diverging, so we need a lower learning rate.
+	%-------------------------------------------------------------------------%
+	\subsection{Question 3.} 
+	
+	Suppose you have m=23 training examples 
+	with n=5 features (excluding the 
+	additional all-ones feature for the intercept term, which you should add).
+	
+	The normal equation is $\theta$=$(X^TX)^{-1}X^{T}y$. For the given values of m and n, 
+	what are the dimensions of $\theta$, X, and y in this equation?
+	
+	\begin{itemize}
+		\item X is 23$\times$6, y is 23$\times$1, $\theta$ is 6$\times$1 [YES]
+		
+		\item X is 23$\times$5, y is 23$\times$1, $\theta$ is 5$\times$5
+		
+		\item X is 23$\times$5, y is 23$\times$1, $\theta$ is 5$\times$1
+		
+		\item X is 23$\times$6, y is 23$\times$6, $\theta$ is 6$\times$6
+	\end{itemize}
+	
+	
+	
+	
+		%----------------------------------------------------------------------------------%
+		
+	\subsection{Question 3. Variant} 
+		Suppose you have m=28 training examples with n=4 features (excluding the additional all-ones feature for the intercept term, which you should add). The normal equation is $\theta$=$(X^TX)^{-1}X^{T}y$. For the given values of m and n, 
+		what are the dimensions of $\theta$, X, and y in this equation?
+		
+	\begin{itemize}
+		\item X is $ 28 \times$5, y is $ 28 \times$1, $\theta$ is 5$\times$1 [YES]
+		
+		\item X is $ 28 \times$5, y is $ 28 \times$1, $\theta$ is 5$\times$5
+		
+		\item X is $ 28 \times$5, y is $ 28 \times$1, $\theta$ is 5$\times$1
+		
+		\item X is $ 28 \times$5, y is $ 28 \times$5, $\theta$ is 5$\times$5
+	\end{itemize}
+	
+	%---------------------------------------------------------------------------%
+	\subsection*{Question 3}
+	Suppose you have m=28 training examples with n=4 features (excluding the additional 
+	all-ones feature for the intercept term, which you should add). The normal equation is $\theta$=(XTX)-1XTy. 
+	For the given values of m and n, what are the dimensions of $\theta$, X, and y in this equation?
+	
+	\begin{itemize}
+		\item X is 28$\times$4, y is 28$\times$1, $\theta$ is 4$\times$4			
+		\item X is 28$\times$4, y is 28$\times$1, $\theta$ is4$\times$1			
+		\item X is 28$\times$5, y is 28$\times$1, $\theta$ is 5$\times$1	\textbf{Correct	1.0}	
+		\item X is 28$\times$5, y is 28$\times$5, $\theta$ is 5$\times$5
+	\end{itemize}			
+	Total		1.00 / 1.00	
+	Question Explanation
+	
+	X has m rows and n+1 columns (+1 because of the x0=1 term). y is an m-vector. $\theta$ is an (n+1)-vector.
+	%-------------------------------------------------------------------------%
+	\subsection{Question 4.} 
+	Suppose you have a dataset with m=1000000 examples and n=200000 features for each example. You want to use multivariate linear regression to fit the parameters $\theta$ to our data. Should you prefer gradient descent or the normal equation?
+	
+	
+	\begin{itemize}
+		\item The normal equation, since it provides an efficient way to directly find the solution. [NO]
+		
+		\item Gradient descent, since it will always converge to the optimal $\theta$.
+		
+		\item Gradient descent, since $(X^TX)^{-1}$ will be very slow to compute in the normal equation.
+		
+		\item The normal equation, since gradient descent might be unable to find the optimal $\theta$.
+	\end{itemize}
+	
+	\subsection{Question 4. variant} 
+		Suppose you have a dataset with m=50 examples and n=15 features for each example. You want to use multivariate linear regression to fit the  parameters $\theta$ to our data. Should you prefer gradient descent or the normal equation?
+		
+	\begin{itemize}
+		\item The normal equation, since it provides an efficient way to directly find the solution. [NO]
+		
+		\item Gradient descent, since it will always converge to the optimal $\theta$.
+		
+		\item Gradient descent, since $(X^TX)^{-1}$ will be very slow to compute in the normal equation.
+		
+		\item The normal equation, since gradient descent might be unable to find the optimal $\theta$.
+	\end{itemize}
+	
+	%---------------------------------------------------------------------------%
+	\subsection*{Question 4}
+	Suppose you have a dataset with m=50 examples and n=200000 features for each example. 
+	You want to use multivariate linear regression to fit the parameters $\theta$ to our data. 
+	Should you prefer gradient descent or the normal equation?
+	
+	\begin{itemize}
+		\item Gradient descent, since ($X^TX)^{-1}$ will be very slow to compute in the normal equation.	
+		\\ Correct
+		
+		\item The normal equation, since it provides an efficient way to directly find the solution.			
+		\item The normal equation, since gradient descent might be unable to find the optimal $\theta$.	
+		\\Incorrect	0.00	 \\ For an appropriate choice of $\alpha$, gradient descent can always find the optimal $\theta$.
+		\item Gradient descent, since it will always converge to the optimal $\theta$.			
+	\end{itemize}	
+	%-------------------------------------------------------------------------%
+	\subsection{Question 5.} 
+	Which of the following are reasons for using feature scaling?
+	
+	\begin{itemize}
+		\item It speeds up solving for $\theta$ using the normal equation.
+		\item It prevents the matrix $X^TX$ (used in the normal equation) from being non-invertable (singular/degenerate).
+		\item (CORRECT) It speeds up gradient descent by making it require fewer iterations to get to a good solution.
+		\item It is necessary to prevent gradient descent from getting stuck in local optima.
+	\end{itemize}
+	\newpage
+
+
+	%---------------------------------------------------------------------------%
+	\subsection*{Question 5}
+	Which of the following are reasons for using feature scaling?
+	
+	\begin{itemize}
+		%--------------%
+		\item FALSE It prevents the matrix XTX (used in the normal equation) from being non-invertable (singular/degenerate).	
+		\\Correct	0.25	 XTX can be singular when features are redundant or there are too few examples. Feature scaling does not solve these problems.
+		%--------------%
+		\item  FALSE It speeds up gradient descent by making it require fewer iterations to get to a good solution.	
+		\\Correct	0.25	 Feature scaling speeds up gradient descent by avoiding many extra iterations that are required when one or more features take on much larger values than the rest.
+		%--------------%
+		\item  TRUE It speeds up solving for $\theta$ using the normal equation.	
+		\\Incorrect	0.00	 The magnitude of the feature values are insignificant in terms of computational cost.
+		%--------------%
+		\item  FALSE It is necessary to prevent gradient descent from getting stuck in local optima.	
+		\\Correct	0.25	 The cost function J($\theta$) for linear regression has no local optima.
+		%--------------%
+	\end{itemize}
+
+\newapge
+\section{Feature Scaling}
+Feature scaling is a method used to standardize the range of independent variables or features of data. In data processing, it is also known as data normalization and is generally performed during the data preprocessing step.
+
+Methods[edit]
+Rescaling[edit]
+The simplest method is rescaling the range of features to scale the range in [0, 1] or [−1, 1]. Selecting the target range depends on the nature of the data. The general formula is given as:
+
+                                   
+  
+    
+    \[{\displaystyle x'={\frac {x-{\text{min}}(x)}{{\text{max}}(x)-{\text{min}}(x)}}}\]
+  
+\[x'={\frac  {x-{\text{min}}(x)}{{\text{max}}(x)-{\text{min}}(x)}} \]
+where {\displaystyle x} x is an original value, ${\displaystyle x'} x' $is the normalized value. For example, suppose that we have the students' weight data, and the students' weights span [160 pounds, 200 pounds]. To rescale this data, we first subtract 160 from each student's weight and divide the result by 40 (the difference between the maximum and minimum weights).
+
+\subsection{Standardization}
+In machine learning, we can handle various types of data, e.g. audio signals and pixel values for image data, and this data can include multiple dimensions. Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the enumerator) and unit-variance. This method is widely used for normalization in many machine learning algorithms (e.g., support vector machines, logistic regression, and neural networks)[1][citation needed]. This is typically done by calculating standard scores.[2] The general method of calculation is to determine the distribution mean and standard deviation for each feature. Next we subtract the mean from each feature. Then we divide the values (mean is already subtracted) of each feature by its standard deviation.
+
+                                   
+  
+    
+   \[ {\displaystyle x'={\frac {x-{\bar {x}}}{\sigma }}}\]
+  
+\[x' = \frac{x - \bar{x}}{\sigma}\]
+
+Where {\displaystyle x} x is the original feature vector, {\displaystyle {\bar {x}}} {\bar {x}} is the mean of that feature vector, and {\displaystyle \sigma } \sigma  is its standard deviation.
+
+\subsection{Scaling to unit length}
+Another option that is widely used in machine-learning is to scale the components of a feature vector such that the complete vector has length one. This usually means dividing each component by the Euclidean length of the vector. In some applications (e.g. Histogram features) it can be more practical to use the L1 norm (i.e. Manhattan Distance, City-Block Length or Taxicab Geometry) of the feature vector:
+
+\[{\displaystyle x'={\frac {x}{||x||}}} x'={\frac  {x}{||x||}}\]
+This is especially important if in the following learning steps the Scalar Metric is used as a distance measure.
+
+
+
+	
+\end{document}
